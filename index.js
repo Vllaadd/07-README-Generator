@@ -1,5 +1,5 @@
-const prompt = require('inquirer').createPromptModule()
-const fs = require('fs')
+const prompt = require('inquirer').createPromptModule() //inquirer should ease the process of providing error feedback, asking questions, parsing input, validating answers, managing hierarchical prompts.
+const fs = require('fs') //file system is a mechanism that controls how data is stored, accessed, and managed. Using fs module, we can perform read, write, delete and many more operations.
 
 const api = require('./utils/api.js')
 const generateMarkdown = require('./utils/generateMarkdown.js')
