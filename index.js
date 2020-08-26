@@ -1,7 +1,7 @@
 const prompt = require('inquirer').createPromptModule() //inquirer should ease the process of providing error feedback, asking questions, parsing input, validating answers, managing hierarchical prompts.
 const fs = require('fs') //file system is a mechanism that controls how data is stored, accessed, and managed. Using fs module, we can perform read, write, delete and many more operations.
 
-const api = require('./utils/api.js')
+const api = require('./utils/api.js') //this line is only because we decided to put api in a separate file 
 const generateMarkdown = require('./utils/generateMarkdown.js')
 
 
@@ -9,7 +9,7 @@ const writeToFile = (fileName, data) => {
     fs.writeFile(fileName + '.md', data, error => error ? console.error(error) : console.log(`${fileName + '.md'} generated!`))
 }
 
-const init = async _ => {
+const init = async _ => { //this is the main function 
     let rmObject = {}
     do {
         const { rmUser, rmRepo } = await prompt([
