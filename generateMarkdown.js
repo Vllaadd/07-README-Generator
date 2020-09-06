@@ -2,7 +2,7 @@ function generateMarkdown(userAnswers, data){
 
     return `
 
-${userAnswers, gitRepoName}
+${userAnswers.gitRepoName}
 
 ${userAnswers.projectDescript}
 
@@ -24,23 +24,8 @@ ${userAnswers.projecUsage}
 
 ## Contribution
 
-${userAnswers.projContribute}
+${userAnswers.projectContribute}
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
-
-## Step 1
-
-* Option 1: Fork this repo!
-
-* Option 2: CLone this repo to your local machine using ${userAnswers.projCloneUrl}
-
-## Step 2
-
-* Hack away!
-
-## Step 3
-
-* Create a new pull request using ${userAnswers.projPullUrl}
 
 
 `;

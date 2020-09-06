@@ -63,9 +63,9 @@ const userAnswers = {};
                     userAnswers.projectContribute = userInput.projectContribute;
                     
 
-                    userAnswers.projCloneURL = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '.git';
+                    // userAnswers.projCloneURL = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '.git';
 
-                    userAnswers.projPullURL = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '/compare';
+                    // userAnswers.projPullURL = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '/compare';
 
                     const writeToFile = (userAnswers, data) => {
                         
