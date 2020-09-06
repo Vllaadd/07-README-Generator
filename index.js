@@ -1,9 +1,9 @@
-const inquirer = require('inquirer')
-const fs = require('fs') 
-const axios = require('axios')
-const generateMarkdown = require('./generateMarkdown.js')
+const inquirer = require('inquirer');
+const fs = require('fs'); 
+const axios = require('axios');
+const generateMarkdown = require('./generateMarkdown.js');
 
-const userAnswers = {}
+const userAnswers = {};
 
         const gitQuestions = [
             {
@@ -55,6 +55,7 @@ const userAnswers = {}
                 .then(axios.spread((queryAnswer, queryUserAnswer) => {
 
                     userAnswers.gitUserName = userInput.gitUserName;
+                    userAnswers.gitRepoName = userInput.gitRepoName;
                     userAnswers.projectDescript = userInput.projectDescript;
                     userAnswers.projectTech = userInput.projectTech;
                     userAnswers.projectInstall = userInput.projectInstall;
@@ -68,7 +69,7 @@ const userAnswers = {}
 
                     const writeToFile = (userAnswers, data) => {
                         
-                        fs.writeFile('README_template.md', generateMarkdown(userAnswers, data))
+                        fs.writeFile('README-template.md', generateMarkdown(userAnswers, data))
 
                     };
 
