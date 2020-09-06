@@ -51,7 +51,7 @@ const userAnswers = {};
                     return axios.get(queryURLUser);
                 }
 
-                axios.default([queryURL(), queryURLUser()])
+                axios.all([queryURL(), queryURLUser()])
                 .then(axios.spread((queryAnswer, queryUserAnswer) => {
 
                     userAnswers.gitUserName = userInput.gitUserName;
@@ -75,5 +75,6 @@ const userAnswers = {};
 
                     writeToFile(userAnswers);
                 }));
-
+    
             });
+            

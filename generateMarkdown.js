@@ -1,7 +1,6 @@
 function generateMarkdown(userAnswers, data){
-    return `
 
-# Project Title
+    return `
 
 ${userAnswers, gitRepoName}
 
