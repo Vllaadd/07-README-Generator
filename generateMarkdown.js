@@ -20,7 +20,7 @@ ${userAnswers.projectInstall}
 ## Usage
 
 Describe the applications functionality
-${userAnswers.projecUsage}
+${userAnswers.projectUsage}
 
 ## Contribution
 
