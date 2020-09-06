@@ -39,31 +39,32 @@ const userAnswers = {}
 
         inquirer
             .prompt(gitQuestions)
-            .them((userInput) => {
+            .then((userInput) => {
+
                 const queryUrl = () => {
-                    var queryUrl = 'https://api.github.com/repos/' + userInput.gitUserName + '/' + userInput.gitRepoName;
-                    return axios.get(queryUrl)
+                    var queryURL = 'https://api.github.com/repos/' + userInput.gitUserName + '/' + userInput.gitRepoName;
+                    return axios.get(queryURL);
+                };
+
+                const queryURLUser = () => {
+                    var queryURLUser = 'https://api.github.com/users/' + userInput.gitUserName;
+                    return axios.get(queryURLUser);
                 }
 
-                const queryUrlUser = () => {
-                    var queryUrlUser = 'https://api.github.com/users/' + userInput.gitUserName;
-                    return axios.get(queryUrlUser);
-                }
-
-                axios.default([queryUrl(), queryUrlUser()])
+                axios.default([queryURL(), queryURLUser()])
                 .then(axios.spread((queryAnswer, queryUserAnswer) => {
 
                     userAnswers.gitUserName = userInput.gitUserName;
-                    userAnswers.gitRepoName = userInput.gitRepoName;
-                    userAnswers.projectDescription = userInput.projectDescription;
-                    userAnswers.instructions = userInput.instructions;
-                    userAnswers.use = userInput.use;
-                    userAnswers.contributors = userInput.contributors;
+                    userAnswers.projectDescript = userInput.projectDescript;
+                    userAnswers.projectTech = userInput.projectTech;
+                    userAnswers.projectInstall = userInput.projectInstall;
+                    userAnswers.projectUsage = userInput.projectUsage;
+                    userAnswers.projectContribute = userInput.projectContribute;
                     
 
-                    userAnswers.projCloneUrl = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '.git';
+                    userAnswers.projCloneURL = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '.git';
 
-                    userAnswers.projPullUrl = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '/compare';
+                    userAnswers.projPullURL = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '/compare';
 
                     const writeToFile = (userAnswers, data) => {
                         

@@ -1,6 +1,3 @@
-function generateMarkdown(userAnswers, data){
-    return `
-
 # Project Title
 
 ${userAnswers, gitRepoName}
@@ -42,8 +39,3 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Step 3
 
 * Create a new pull request using ${userAnswers.projPullUrl}
-
-
-`;
-}
-module.exports = generateMarkdown;
