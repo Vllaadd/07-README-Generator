@@ -4,7 +4,7 @@ const axios = require('axios')
 const generateMarkdown = require('./utils/generateMarkdown.js')
 const api = require('./utils/api.js') 
 
-const gitInput = {}
+const userAnswers = {}
 
         const gitQuestions = [
             {
@@ -40,8 +40,40 @@ const gitInput = {}
 
         inquirer
             .prompt(gitQuestions)
-            .them((userInput) => {
+            .them((userAnswers) => {
                 const queryUrl = () => {
-                    var queryUrl = 
+                    var queryUrl = '';
+                    return axios.get(queryUrl)
                 }
-            })
+
+                const queryURLUser = () => {
+                    var queryURLUser = ''
+                    return axios.get(queryURLUser);
+                }
+
+                axios.default([queryUrl(), queryURLUser()])
+                .then(axios.spread(function (queryResponse, queryResponseUser){
+
+                    userAnswers.gitUserName = questionResponse.gitUserName;
+
+                    userAnswers.gitRepoName = questionResponse.gitRepoName;
+                    userAnswers.projectDescription = questionResponse.projectDescription;
+                    userAnswers.instructions = questionResponse.instructions;
+                    userAnswers.use = questionResponse.use;
+                    userAnswers.contributors = questionResponse.contributors;
+                    
+
+                    userAnswers.projCloneUrl = ''
+
+                    userAnswers.projPullUrl = '';
+
+                    const writeToFile = (userAnswers, data) => {
+                        
+                        fs.writeFile('README_template.md', generateMarkdown(userAnswers, data))
+
+                    };
+
+                    writeToFile(userAnswers);
+                }));
+
+            });
