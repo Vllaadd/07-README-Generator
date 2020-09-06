@@ -41,6 +41,9 @@ const userAnswers = {};
             .prompt(gitQuestions)
             .then((userInput) => {
 
+                console.log('Done');
+                console.log('Github user: ', userInput.gitUserName);
+
                 const queryURL = () => {
                     var queryURL = 'https://api.github.com/repos/' + userInput.gitUserName + '/' + userInput.gitRepoName;
                     return axios.get(queryURL);
