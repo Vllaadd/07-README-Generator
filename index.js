@@ -1,8 +1,7 @@
 const inquirer = require('inquirer')
 const fs = require('fs') 
 const axios = require('axios')
-const generateMarkdown = require('./utils/generateMarkdown.js')
-const api = require('./utils/api.js') 
+const generateMarkdown = require('./generateMarkdown.js')
 
 const userAnswers = {}
 
@@ -18,23 +17,23 @@ const userAnswers = {}
             },{
                 type: 'input',
                 name: 'projectDescript',
-                message: 'What ist the project description?'
+                message: 'What is the project description?'
             },{
                 type: 'input',
-                name: 'instructions',
+                name: 'projectTech',
+                message: 'Which tech framework were used?'
+            },{
+                type: 'input',
+                name: 'projectInstall',
                 message: 'What are the installation instructions?'
             },{
                 type: 'input',
-                name: 'use',
+                name: 'projectUsage',
                 message: 'What is the usage description?'
             },{
                 type: 'input',
-                name: 'contributors',
+                name: 'projectContribute',
                 message: 'Who are the contributors?'
-            },{
-                type: 'input',
-                name: 'questions',
-                message: 'Do you have any questions?'
             }
         ];
 
@@ -42,13 +41,8 @@ const userAnswers = {}
             .prompt(gitQuestions)
             .them((userInput) => {
                 const queryUrl = () => {
-                    var queryUrl = '';
-                    return axios.get(queryUrl)
-                }
-
-                const queryUrl = () => {
                     var queryUrl = 'https://api.github.com/repos/' + userInput.gitUserName + '/' + userInput.gitRepoName;
-                    return axios.get(queryUrl);
+                    return axios.get(queryUrl)
                 }
 
                 const queryUrlUser = () => {
@@ -57,7 +51,7 @@ const userAnswers = {}
                 }
 
                 axios.default([queryUrl(), queryUrlUser()])
-                .then(axios.spread(function (queryAnswer, queryUserAnswer){
+                .then(axios.spread((queryAnswer, queryUserAnswer) => {
 
                     userAnswers.gitUserName = userInput.gitUserName;
                     userAnswers.gitRepoName = userInput.gitRepoName;
