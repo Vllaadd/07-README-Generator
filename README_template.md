@@ -1,23 +1,26 @@
-# Project Title
 
-Project description.
+
+06-Weather-Dashboard
+
+gskjrtngmfdew
 
 ---------
 ## Tech/Framework Used
 
 Project is created with:
 
-List the tech frameworks used.
+rgrtgfdert
 
 ## Installation
 
-Installation instructions go here.
+hgfdewrt
 
 ## Usage
 
 Describe the applications functionality
+fdsewrty
 
-## Contributing
+## Contribution
 
-Co-authors: List co-authors here.
+Vlad
 
