@@ -5,6 +5,7 @@ const generateMarkdown = require('./generateMarkdown.js');
 
 const userAnswers = {};
 
+//array with questions 
         const gitQuestions = [
             {
                 type: 'input',
@@ -37,6 +38,7 @@ const userAnswers = {};
             }
         ];
 
+//prompt with questions
         inquirer
             .prompt(gitQuestions)
             .then((userInput) => {
@@ -54,6 +56,7 @@ const userAnswers = {};
                     return axios.get(queryURL);
                 };
 
+//axios method to deal with GitHub API
                 axios.all([queryURL(), queryURLUser()])
                 .then(axios.spread((queryAnswer, queryUserAnswer) => {
 
@@ -66,6 +69,7 @@ const userAnswers = {};
                     userAnswers.projectContribute = userInput.projectContribute;
                     
 
+//fs writeFile method to generate the new file with new data
                     const writeToFile = (userAnswers, data) => {
                             fs.writeFile('README_template.md', generateMarkdown(userAnswers, data),(error) =>{
                                 if (error) throw error;
