@@ -66,22 +66,11 @@ const userAnswers = {};
                     userAnswers.projectContribute = userInput.projectContribute;
                     
 
-                    // userAnswers.projCloneURL = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '.git';
-
-                    // userAnswers.projPullURL = 'https://github.com/' + userInput.gitUserName + '/' + userInput.data.name + '/compare';
-
-                    // console.log('userAnswers.gitUserName: ', userAnswers.gitUserName);
-                    // console.log('userAnswers.gitRepoName: ', userAnswers.gitRepoName);
-                    // console.log('userAnswers.projCloneURL: ', userAnswers.projCloneURL);
-                    // console.log('userAnswers.projPullURL: ', userAnswers.projPullURL);
-
-
                     const writeToFile = (userAnswers, data) => {
                             fs.writeFile('README_template.md', generateMarkdown(userAnswers, data),(error) =>{
                                 if (error) throw error;
                                 console.log('The file has been saved!');
                             })
-                        
 
                     };
 
