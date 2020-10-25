@@ -1,24 +1,24 @@
 
 
-06-Weather-Dashboard
+07-README-Generator
 
-gskjrtngmfdew
+description
 
 ---------
 ## Tech/Framework Used
 
 Project is created with:
 
-rgrtgfdert
+javascript
 
 ## Installation
 
-hgfdewrt
+instructions
 
 ## Usage
 
 Describe the applications functionality
-fdsewrty
+fhdkjf
 
 ## Contribution
 
